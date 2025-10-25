@@ -1,8 +1,11 @@
 package racingcar.view;
 
+import java.util.List;
 import racingcar.view.message.SystemMessage;
 
 public class ApplicationOutput {
+
+    private static final String WINNER_NAME_PARSER = ", ";
 
     private void print(String message) {
         System.out.println(message);
@@ -20,7 +23,7 @@ public class ApplicationOutput {
         print(SystemMessage.OUTPUT_RACE_RESULT.getMessage());
     }
 
-    public void printWinner() {
-        print(SystemMessage.OUTPUT_RACE_WINNER.getMessage());
+    public void printWinner(List<String> winnerNames) {
+        print(SystemMessage.OUTPUT_RACE_WINNER.getMessage() + String.join(WINNER_NAME_PARSER, winnerNames));
     }
 }
