@@ -24,4 +24,20 @@ public class Race {
 
         return result;
     }
+
+    public List<String> winner() {
+        int maxPosition = getMaxPosition();
+
+        return cars.stream()
+                .filter(car -> car.isPositionEqual(maxPosition))
+                .map(Car::getName)
+                .toList();
+    }
+
+    private int getMaxPosition() {
+        return cars.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+    }
 }
