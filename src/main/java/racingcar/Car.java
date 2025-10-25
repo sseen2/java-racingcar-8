@@ -2,6 +2,8 @@ package racingcar;
 
 public class Car {
 
+
+    private static final int MOVE_CONDITION = 4;
     private static final String NAME_POSITION_DELIMITER = " : ";
     private static final String POSITION_MARKER = "-";
 
@@ -13,8 +15,10 @@ public class Car {
         this.position = 0;
     }
 
-    public void move() {
-        position++;
+    public void tryMove(int randomValue) {
+        if (randomValue >= MOVE_CONDITION) {
+            position++;
+        }
     }
 
     public String getName() {
