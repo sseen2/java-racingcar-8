@@ -11,6 +11,10 @@ public class ApplicationOutput {
         System.out.println(message);
     }
 
+    public void printBlankLine() {
+        System.out.println();
+    }
+
     public void printInputCarName() {
         print(SystemMessage.INPUT_CAR_NAME.getMessage());
     }
@@ -21,6 +25,13 @@ public class ApplicationOutput {
 
     public void printRaceResult() {
         print(SystemMessage.OUTPUT_RACE_RESULT.getMessage());
+    }
+
+    public void printRaceResult(List<String> carMoveResults) {
+        for (String moveResult : carMoveResults) {
+            print(moveResult);
+        }
+        printBlankLine();
     }
 
     public void printWinner(List<String> winnerNames) {
