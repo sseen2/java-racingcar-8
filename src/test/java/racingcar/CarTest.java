@@ -50,7 +50,7 @@ public class CarTest {
         car.tryMove(MOVING_FORWARD);
         String expectedResult = "test : -";
 
-        String result = car.toString();
+        String result = car.moveResult();
 
         assertThat(expectedResult).isEqualTo(result);
     }

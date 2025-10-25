@@ -32,7 +32,7 @@ public class Car {
         return position;
     }
 
-    public String toString() {
+    public String moveResult() {
         return name + NAME_POSITION_DELIMITER + POSITION_MARKER.repeat(Math.max(0, position));
     }
 }
