@@ -11,7 +11,8 @@ public class Application {
         ApplicationOutput outputView = new ApplicationOutput();
 
         outputView.printInputCarName();
-        List<Car> cars = inputView.inputCarName().stream()
+        List<Car> cars = inputView.inputCarName()
+                .stream()
                 .map(Car::new)
                 .toList();
 
@@ -23,9 +24,11 @@ public class Application {
 
         outputView.printRaceResult();
         for (int i = 0; i < tryCount; i++) {
-            outputView.printRaceResult(race.start());
+            List<String> turnResult = race.start();
+            outputView.printTurnResult(turnResult);
         }
 
-        outputView.printWinner(race.winner());
+        List<String> winnerNames = race.winner();
+        outputView.printWinner(winnerNames);
     }
 }

@@ -27,7 +27,7 @@ public class ApplicationOutput {
         print(SystemMessage.OUTPUT_RACE_RESULT.getMessage());
     }
 
-    public void printRaceResult(List<String> carMoveResults) {
+    public void printTurnResult(List<String> carMoveResults) {
         for (String moveResult : carMoveResults) {
             print(moveResult);
         }

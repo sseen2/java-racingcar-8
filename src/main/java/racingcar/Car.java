@@ -14,7 +14,7 @@ public class Car {
         this.position = 0;
     }
 
-    public void tryMove(int randomValue) {
+    public void move(int randomValue) {
         if (randomValue >= MOVE_CONDITION) {
             position++;
         }

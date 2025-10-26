@@ -21,11 +21,11 @@ public class CarTest {
 
     @Test
     @DisplayName("랜덤 생성된 값이 4 이상일 경우 자동차 전진 성공")
-    void tryMoveTest() {
+    void moveTest() {
         Car car = new Car(CAR_NAME);
         int expectedResult = 1;
 
-        car.tryMove(MOVING_FORWARD);
+        car.move(MOVING_FORWARD);
 
         int result = car.getPosition();
         assertThat(expectedResult).isEqualTo(result);
@@ -33,11 +33,11 @@ public class CarTest {
 
     @Test
     @DisplayName("랜덤 생성된 값이 3 이하인 경우 자동차 전진 실패")
-    void tryMoveTestNotMove() {
+    void move() {
         Car car = new Car(CAR_NAME);
         int expectedResult = 0;
 
-        car.tryMove(STOP);
+        car.move(STOP);
 
         int result = car.getPosition();
         assertThat(expectedResult).isEqualTo(result);
@@ -47,7 +47,7 @@ public class CarTest {
     @DisplayName("자동차 상태 문자열은 '이름 : 이동거리' 형식으로 반환")
     void toStringTest() {
         Car car = new Car(CAR_NAME);
-        car.tryMove(MOVING_FORWARD);
+        car.move(MOVING_FORWARD);
         String expectedResult = "test : -";
 
         String result = car.moveResult();

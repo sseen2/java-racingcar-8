@@ -16,13 +16,14 @@ public class Race {
     }
 
     public List<String> start() {
-        List<String> result = new ArrayList<>();
+        List<String> turnResult = new ArrayList<>();
         for (Car car : cars) {
-            car.tryMove(Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER));
-            result.add(car.moveResult());
+            int randomValue = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER);
+            car.move(randomValue);
+            turnResult.add(car.moveResult());
         }
 
-        return result;
+        return turnResult;
     }
 
     public List<String> winner() {
