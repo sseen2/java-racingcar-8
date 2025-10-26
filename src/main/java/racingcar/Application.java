@@ -24,7 +24,7 @@ public class Application {
 
         outputView.printRaceResult();
         for (int i = 0; i < tryCount; i++) {
-            List<String> turnResult = race.start();
+            List<Car> turnResult = race.start();
             outputView.printTurnResult(turnResult);
         }
 

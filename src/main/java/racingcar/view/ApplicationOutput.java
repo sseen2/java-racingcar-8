@@ -1,10 +1,13 @@
 package racingcar.view;
 
 import java.util.List;
+import racingcar.Car;
 import racingcar.view.message.SystemMessage;
 
 public class ApplicationOutput {
 
+    private static final String NAME_POSITION_DELIMITER = " : ";
+    private static final String POSITION_MARKER = "-";
     private static final String WINNER_NAME_PARSER = ", ";
 
     private void print(String message) {
@@ -27,9 +30,11 @@ public class ApplicationOutput {
         print(SystemMessage.OUTPUT_RACE_RESULT.getMessage());
     }
 
-    public void printTurnResult(List<String> carMoveResults) {
-        for (String moveResult : carMoveResults) {
-            print(moveResult);
+    public void printTurnResult(List<Car> cars) {
+        for (Car car : cars) {
+            String name = car.getName();
+            int position = car.getPosition();
+            print(name + NAME_POSITION_DELIMITER + POSITION_MARKER.repeat(Math.max(0, position)));
         }
         printBlankLine();
     }

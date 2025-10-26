@@ -15,15 +15,13 @@ public class Race {
         this.cars = cars;
     }
 
-    public List<String> start() {
-        List<String> turnResult = new ArrayList<>();
+    public List<Car> start() {
         for (Car car : cars) {
             int randomValue = Randoms.pickNumberInRange(RANDOM_START_NUMBER, RANDOM_END_NUMBER);
             car.move(randomValue);
-            turnResult.add(car.moveResult());
         }
 
-        return turnResult;
+        return cars;
     }
 
     public List<String> winner() {

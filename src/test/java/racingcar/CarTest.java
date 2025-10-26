@@ -42,16 +42,4 @@ public class CarTest {
         int result = car.getPosition();
         assertThat(expectedResult).isEqualTo(result);
     }
-
-    @Test
-    @DisplayName("자동차 상태 문자열은 '이름 : 이동거리' 형식으로 반환")
-    void toStringTest() {
-        Car car = new Car(CAR_NAME);
-        car.move(MOVING_FORWARD);
-        String expectedResult = "test : -";
-
-        String result = car.moveResult();
-
-        assertThat(expectedResult).isEqualTo(result);
-    }
 }
