@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
+import racingcar.view.message.ErrorMessage;
 
 public class ApplicationInput {
 
@@ -17,6 +18,14 @@ public class ApplicationInput {
     }
 
     public long inputTryCount() {
-        return Long.parseLong(input());
+        return parseLong(input());
+    }
+
+    private long parseLong(String input) {
+        try {
+            return Long.parseLong(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_NUMBER.getMessage());
+        }
     }
 }
