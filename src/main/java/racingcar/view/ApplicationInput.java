@@ -9,7 +9,7 @@ public class ApplicationInput {
     private static final String CAR_NAME_SPLITTER = ",";
 
     private String input() {
-        return Console.readLine();
+        return Console.readLine().trim();
     }
 
     public List<String> inputCarName() {
