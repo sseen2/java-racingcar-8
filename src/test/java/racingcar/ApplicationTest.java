@@ -43,6 +43,26 @@ class ApplicationTest extends NsTest {
         );
     }
 
+    @Test
+    @DisplayName("시도 횟수가 음수인 경우 예외 반환")
+    void tryCountNotPositiveTest() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "-1"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(ErrorMessage.TRY_COUNT_NOT_POSITIVE.getMessage())
+        );
+    }
+
+    @Test
+    @DisplayName("시도 횟수가 0인 경우 예외 반환")
+    void tryCountZeroTest() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("pobi,java", "0"))
+                        .isInstanceOf(IllegalArgumentException.class)
+                        .hasMessage(ErrorMessage.TRY_COUNT_NOT_POSITIVE.getMessage())
+        );
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});

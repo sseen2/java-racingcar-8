@@ -18,7 +18,9 @@ public class ApplicationInput {
     }
 
     public long inputTryCount() {
-        return parseLong(input());
+        long tryCount = parseLong(input());
+        validatePositive(tryCount);
+        return tryCount;
     }
 
     private long parseLong(String input) {
@@ -26,6 +28,12 @@ public class ApplicationInput {
             return Long.parseLong(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_NUMBER.getMessage());
+        }
+    }
+
+    private void validatePositive(long tryCount) {
+        if (tryCount <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.TRY_COUNT_NOT_POSITIVE.getMessage());
         }
     }
 }
